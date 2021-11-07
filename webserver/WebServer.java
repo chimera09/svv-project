@@ -13,12 +13,14 @@ import java.io.*;
 
 public class WebServer extends Thread {
 	protected Socket clientSocket;
-	private static final File WEB_ROOT = new File("./TestSite");
+	//had to use the full path because the app was being launched from a different folder when running tests
+	//replace with File("./TestSite")
+	private static final File WEB_ROOT = new File("C:/Users/rares/Projects/College/SVV/svv-project/TestSite");
 	private static final String DEFAULT_PAGE = "a.html";
 	private static final String NOT_FOUND = "404.html";
 	private static String foundPath = null;
 
-	private String getContentType(String fileRequested) {
+	public String getContentType(String fileRequested) {
 		if(fileRequested.endsWith(".htm") || fileRequested.endsWith(".html"))
 			return "text/html";
 		if(fileRequested.endsWith(".css"))
@@ -40,7 +42,7 @@ public class WebServer extends Thread {
 		
 	}
 
-	private String parseWhiteSpaces(String fileRequested) {
+	public String parseWhiteSpaces(String fileRequested) {
 		if (fileRequested.contains("%20")) {
 			fileRequested = fileRequested.replace("%20", " ");
 		}
@@ -66,8 +68,7 @@ public class WebServer extends Thread {
 		dataOut.flush();
 	}
 
-	private byte[] readFileData(File file, int fileLength) throws IOException {
-		System.out.println("File: " + file);
+	public byte[] readFileData(File file, int fileLength) throws IOException {
 		FileInputStream fileIn = null;
 		byte[] fileData = new byte[fileLength];
 
@@ -110,7 +111,7 @@ public class WebServer extends Thread {
 		}
 	}
 
-	private WebServer(Socket clientSoc) {
+	public WebServer(Socket clientSoc) {
 		clientSocket = clientSoc;
 		start();
 	}
