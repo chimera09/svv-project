@@ -1,2 +1,11 @@
 #ignore compiled classes
 *.class
+
+#ignore iml files
+*.iml
+
+#ignore production folder
+out
+
+#ignore .idea folder
+.idea
