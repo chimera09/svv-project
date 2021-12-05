@@ -28,19 +28,19 @@ public class WebServer extends Thread {
 		return "text/plain";
 	}
 
-	private static void searchFileTree(String fileRequested) throws IOException {
-		Path root = Paths.get(WEB_ROOT.toString());
-
-		Files.walkFileTree(root, new SimpleFileVisitor<Path>() {
-			@Override
-			public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-				if (file.toString().contains(fileRequested))
-					foundPath = file.toString();
-				return FileVisitResult.CONTINUE;
-			}
-		});
-		
-	}
+//	private static void searchFileTree(String fileRequested) throws IOException {
+//		Path root = Paths.get(WEB_ROOT.toString());
+//
+//		Files.walkFileTree(root, new SimpleFileVisitor<Path>() {
+//			@Override
+//			public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+//				if (file.toString().contains(fileRequested))
+//					foundPath = file.toString();
+//				return FileVisitResult.CONTINUE;
+//			}
+//		});
+//
+//	}
 
 	public String parseWhiteSpaces(String fileRequested) {
 		if (fileRequested.contains("%20")) {

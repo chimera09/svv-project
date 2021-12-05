@@ -9,11 +9,9 @@
 * _hamcrest-core-1.3_
 
 ## Test coverage reports can be found at
-```
-./testcoverage/index.html
-```
 
-## Or you can just check out these screenshots
+[./testcoverage/index.html](./testcoverage)
 
-![image](./img/testcoverage1.png)
-![image](./img/testcoverage2.png)
+## Or you can just check out this screenshot
+
+![image](./img/testcoverage.png)
