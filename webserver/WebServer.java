@@ -15,7 +15,7 @@ public class WebServer extends Thread {
 	protected Socket clientSocket;
 	//had to use the full path because the app was being launched from a different folder when running tests
 	//replace with File("./TestSite")
-	private static final File WEB_ROOT = new File("C:/Users/rares/Projects/College/SVV/svv-project/TestSite");
+	private File webRoot;
 	private static final String DEFAULT_PAGE = "a.html";
 	private static final String NOT_FOUND = "404.html";
 	private static String foundPath = null;
@@ -51,7 +51,7 @@ public class WebServer extends Thread {
 	}
 
 	private void fileNotFound(PrintWriter out, OutputStream dataOut) throws IOException {
-		File file = new File(WEB_ROOT, NOT_FOUND);
+		File file = new File(webRoot, NOT_FOUND);
 		int fileLength = (int) file.length();
 		String content = "text/html";
 		byte[] fileData = readFileData(file, fileLength);
@@ -85,6 +85,13 @@ public class WebServer extends Thread {
 
 	public WebServer(Socket clientSoc) {
 		clientSocket = clientSoc;
+		this.webRoot = new File("E:/Projects/College/SVV/svv-project/TestSite/prod");
+		start();
+	}
+
+	public WebServer(Socket clientSoc, String selectedFolder) {
+		clientSocket = clientSoc;
+		this.webRoot = new File(selectedFolder);
 		start();
 	}
 
@@ -113,7 +120,7 @@ public class WebServer extends Thread {
 					fileRequested += DEFAULT_PAGE;
 				}
 
-				File file = new File(WEB_ROOT, fileRequested);
+				File file = new File(webRoot, fileRequested);
 				int fileLength = (int) file.length();
 				String content = getContentType(fileRequested);
 

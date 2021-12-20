@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="stage" prefHeight="318.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.WebServerGUIController">
+   <children>
+      <SplitPane dividerPositions="0.5" prefHeight="200.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TabPane layoutY="-1.0" prefHeight="198.0" prefWidth="296.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                      <Tab text="Webserver info">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Server status:" />
+                                    <Text layoutX="14.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Server address:" />
+                                    <Text layoutX="14.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Server listening port:" />
+                                    <Text fx:id="serverStatusLabel" layoutX="199.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="not running" />
+                                    <Text fx:id="serverAddressLabel" layoutX="199.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="not running" />
+                                    <Text fx:id="serverPortLabel" layoutX="199.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="not running" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="169.0" prefWidth="336.0">
+               <children>
+                  <TabPane layoutY="-1.0" prefHeight="198.0" prefWidth="296.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                      <Tab text="Webserver controls">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="235.0">
+                                 <children>
+                                    <Button fx:id="serverButton" layoutX="71.0" layoutY="60.0" mnemonicParsing="false" onAction="#startServer" prefHeight="25.0" prefWidth="150.0" text="Start server" />
+                                    <CheckBox fx:id="switchCheckbox" layoutX="58.0" layoutY="98.0" mnemonicParsing="false" onAction="#checkMaintenanceMode" text="Switch to maintenance mode" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <AnchorPane layoutY="200.0" prefHeight="200.0" prefWidth="600.0">
+         <children>
+            <TabPane prefHeight="200.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <tabs>
+                <Tab text="Webserver configuration">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Server listening on port" />
+                              <Text layoutX="14.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Web root directory" />
+                              <Text layoutX="14.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maintenance directory" />
+                              <TextField fx:id="portField" layoutX="162.0" layoutY="10.0" prefHeight="25.0" prefWidth="69.0" text="10008" />
+                              <TextField fx:id="webRootField" layoutX="162.0" layoutY="73.0" prefHeight="25.0" prefWidth="325.0" text="E:/Projects/College/SVV/svv-project/TestSite/prod" />
+                              <TextField fx:id="maintenanceField" layoutX="162.0" layoutY="136.0" prefHeight="25.0" prefWidth="325.0" text="E:/Projects/College/SVV/svv-project/TestSite/maintenance" />
+                              <Button fx:id="rootDirectoryButton" layoutX="500.0" layoutY="73.0" mnemonicParsing="false" onAction="#openDirectoryPicker" text="..." />
+                              <Button fx:id="maintenanceButton" layoutX="500.0" layoutY="136.0" mnemonicParsing="false" onAction="#openDirectoryPicker" text="..." />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

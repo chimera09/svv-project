@@ -7,6 +7,7 @@
 
 * _junit-4.13.2_
 * _hamcrest-core-1.3_
+* _javafx-sdk-17.0.1_
 
 ## Plugins:
 
@@ -15,6 +16,7 @@
 ## Third party apps:
 
 * _YourKit Java Profiler v2021.11-b220_
+* _JavaFX SceneBuilder v17.0.0_
 
 ## Test coverage reports can be found at
 
